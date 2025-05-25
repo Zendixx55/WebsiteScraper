@@ -84,7 +84,7 @@ def files_to_download(tag_list,file_extensions_tuple, websitedirs):
     return downloadable
 # !!! Defying basic variables !!!
 target = input("Please enter full website address (http://www.example.com): ")
-# target = "http://toscrape.com"
+# target = "http://toscrape.com", made for debugging
 response = requests.get(target)
 dirlist = download_dir_lists()
 response = requests.get(target , timeout= 5)
@@ -120,4 +120,5 @@ print("These are all the links on the sitemap: " + str(websitelinks))
 # !!! Creating downloadable files list !!!
 tag_list = ['a', 'audio', 'video', 'img', 'image']
 file_extensions_tuple = ('.mp3' , '.mp4', '.pdf', '.png', '.jpg', '.gif')
-files_to_download(tag_list,file_extensions_tuple, websitedirs) # Creates a list of files to download - can be used later to download.
+files_download_list = files_to_download(tag_list,file_extensions_tuple, websitedirs) # Creates a list of files to download - can be used later to download.
+print("These are the downloadable links: " + str(files_download_list))
